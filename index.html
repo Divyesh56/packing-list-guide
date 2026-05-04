@@ -33,6 +33,70 @@
         .seo-table { width: 100%; border-collapse: collapse; margin: 2rem 0; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
         .seo-table th, .seo-table td { padding: 12px; border: 1px solid #e2e8f0; text-align: left; }
         .seo-table th { background: #f7fafc; font-weight: bold; color: var(--primary); }
+
+
+         /* Related Lists Section */
+h3 {
+    margin-top: 3rem;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-light);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* Target only the list following the H3 */
+h3 + ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    list-style-type: none;
+}
+
+h3 + ul li {
+    margin: 0;
+}
+
+h3 + ul li::before {
+    content: ""; /* Removes the checkmark for nav links */
+}
+
+h3 + ul li a {
+    display: block;
+    background: var(--white);
+    padding: 15px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+h3 + ul li a:hover {
+    border-color: var(--primary-color);
+    background: #eff6ff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Mobile Tweak */
+@media (max-width: 600px) {
+    h3 + ul {
+        grid-template-columns: 1fr;
+    }
+}
+    
+
+    
     </style>
 
     <!-- INJECTED FAQ SCHEMA TO FORCE INDEXING VALUE -->
@@ -168,6 +232,15 @@
 
 <h3>Is this better than using Google Sheets for packing lists?</h3>
 <p>Yes, unlike spreadsheets, this tool is designed specifically for printable packing checklists.</p>
+
+
+         <h3>Related Packing Lists</h3>
+<ul>
+ 
+<!-- <li><a href="convert-itinerary-to-pdf.html">convert itinerary to PDF.</a></li> -->
+<li><a href="5-day-trip-packing-list.html">5 Day Trip Packing List</a></li>
+</ul>
+
 
     </main>
 
