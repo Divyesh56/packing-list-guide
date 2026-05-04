@@ -44,6 +44,68 @@
         .faq-box p { margin: 0; font-size: 1rem; color: #4b5563; }
         
         footer { text-align: center; padding: 3rem; background: #f3f4f6; color: #6b7280; margin-top: 4rem; }
+    
+    /* Related Lists Section */
+h3 {
+    margin-top: 3rem;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-light);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* Target only the list following the H3 */
+h3 + ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    list-style: none;
+}
+
+h3 + ul li {
+    margin: 0;
+}
+
+h3 + ul li::before {
+    content: ""; /* Removes the checkmark for nav links */
+}
+
+h3 + ul li a {
+    display: block;
+    background: var(--white);
+    padding: 15px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+h3 + ul li a:hover {
+    border-color: var(--primary-color);
+    background: #eff6ff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Mobile Tweak */
+@media (max-width: 600px) {
+    h3 + ul {
+        grid-template-columns: 1fr;
+    }
+}
+    
+    
     </style>
 
     <!-- SCHEMA 1: Software Application (Tells Google this is a Tool) -->
@@ -199,6 +261,14 @@
         </div>
     </div>
 </section>
+
+<h3>Related Packing Lists</h3>
+<ul>
+ 
+<!-- <li><a href="index.html">Blank Packing List PDF (Printable A4, No Watermark, No Login)</a></li> -->
+<li><a href="5-day-trip-packing-list.html">5 Day Trip Packing List</a></li>
+</ul>
+
 
     <footer>
         <p>&copy; 2026 CheapTrip. Built for indie travelers who value simplicity.</p>
