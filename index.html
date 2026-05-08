@@ -33,9 +33,8 @@
         .seo-table { width: 100%; border-collapse: collapse; margin: 2rem 0; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
         .seo-table th, .seo-table td { padding: 12px; border: 1px solid #e2e8f0; text-align: left; }
         .seo-table th { background: #f7fafc; font-weight: bold; color: var(--primary); }
-
-
-         /* Related Lists Section */
+    
+    /* Related Lists Section */
 h3 {
     margin-top: 3rem;
     font-size: 1.25rem;
@@ -94,8 +93,58 @@ h3 + ul li a:hover {
         grid-template-columns: 1fr;
     }
 }
-    
 
+.preview-container {
+    display: none; /* Hidden by default */
+    margin: 2rem 0;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    background: #f8fafc;
+}
+
+.preview-header {
+    background: #edf2f7;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.preview-header span {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--primary);
+    text-transform: uppercase;
+}
+
+iframe.pdf-frame {
+    width: 100%;
+    height: 500px;
+    border: none;
+}
+
+.preview-btn {
+    cursor: pointer;
+    background: #3182ce;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s;
+}
+
+.preview-btn:hover {
+    background: #2b6cb0;
+    transform: translateY(-1px);
+}
     
     </style>
 
@@ -120,7 +169,19 @@ h3 + ul li a:hover {
             "@type": "Answer",
             "text": "Yes, our tool is 100% offline and manual. We do not require a login, and we do not store your travel plans on any external servers."
           }
-        }
+        },
+        {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Packing List PDF Generator",
+  "operatingSystem": "All",
+  "applicationCategory": "TravelApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
       ]
     }
     </script>
@@ -142,7 +203,28 @@ h3 + ul li a:hover {
 <p>Many travelers struggle because packing lists created in Excel or Google Sheets often print with broken margins, cut-off text, or unreadable layouts. This happens because spreadsheets are not optimized for A4 printable formats.</p>
 
 <p>This packing list generator solves that problem by creating a clean PDF that fits perfectly on standard paper without any formatting issues.</p>
-            <div class="cta-container">
+           <div style="text-align: center; margin: 2rem 0;">
+    <button class="preview-btn" onclick="togglePreview()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5V4.5h-2z"/>
+        </svg>
+        View Sample PDF Template
+    </button>
+
+    <div id="pdfPreview" class="preview-container">
+        <div class="preview-header">
+            <span>A4 Template Preview</span>
+            <small style="color: #718096;">(Standard Print Layout)</small>
+        </div>
+        <iframe 
+            class="pdf-frame" 
+            src="sample-plan.pdf">
+        </iframe>
+    </div>
+</div>
+
+
+<div class="cta-container">
                 <h3>Build your custom list right now</h3>
                 <p>Type your gear, organize your categories, and download a clean A4 PDF ready for your home printer. No login required.</p>
                 <a href="https://cheaptrip.online/planner.html" class="btn">Open the Blank PDF Maker</a>
@@ -234,7 +316,7 @@ h3 + ul li a:hover {
 <p>Yes, unlike spreadsheets, this tool is designed specifically for printable packing checklists.</p>
 
 
-         <h3>Related Packing Lists</h3>
+    <h3>Related Packing Lists</h3>
 <ul>
  
 <!-- <li><a href="convert-itinerary-to-pdf.html">convert itinerary to PDF.</a></li> -->
@@ -244,12 +326,23 @@ h3 + ul li a:hover {
 
     </main>
 
-    
 
-   
+
+
     <footer>
         <p>&copy; 2026 CheapTrip. Simple, privacy-first tools for organized travel.</p>
     </footer>
-
+<script>
+function togglePreview() {
+    const preview = document.getElementById('pdfPreview');
+    if (preview.style.display === "block") {
+        preview.style.display = "none";
+    } else {
+        preview.style.display = "block";
+        // Optional: Scroll to preview so the user sees it open
+        preview.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+}
+</script>
 </body>
 </html>
